@@ -2,6 +2,7 @@ use mongodb::{Client, options::ClientOptions};
 use mongodb::bson::{doc, Document};
 use std::error::Error;
 use tokio;
+use std::io;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -41,6 +42,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
     // Insert some documents into the "next-tailwind.users" collection.
     collection.insert_many(docs, None).await?;
     println!("\nDocuments inserted into the next-tailwind.users collection");
+
+    // Keep terminal open on end
+    println!("Press any key to exit...");
+    io::stdin().read_line(&mut String::new()).unwrap();
 
     Ok(())
 }
