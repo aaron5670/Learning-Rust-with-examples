@@ -1,5 +1,5 @@
 [package]
-name = "rust_quickstart"
+name = "rust_mongodb_example"
 version = "0.1.0"
 edition = "2018"
 
